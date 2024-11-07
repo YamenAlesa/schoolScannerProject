@@ -4,7 +4,7 @@ import Clock from "./components/clock";
 function App() {
   return (
     <div className="App">
-      <h1>Välkomna! This is the food app for NTI</h1>
+      <h1>Välkomna! This is the food app for NTI - for the pull request</h1>
       <hr />
       <Clock />
     </div>
