@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-
 const Scanner = () => {
   const [barcode, setBarcode] = useState(""); // Current barcode being scanned
   const [scannedBarcodes, setScannedBarcodes] = useState([]); // List of all scanned barcodes
