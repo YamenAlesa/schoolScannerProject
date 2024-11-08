@@ -1,54 +1,46 @@
 import React, { useState, useEffect } from "react";
 
-const Scanner = () => {
-  const [barcode, setBarcode] = useState(""); // Current barcode being scanned
-  const [scannedBarcodes, setScannedBarcodes] = useState([]); // List of all scanned barcodes
-  let timeout;
+const BarcodeScanner = ({ onScan }) => {
+  const [currentScan, setCurrentScan] = useState("");
+  const [timeoutId, setTimeoutId] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const handleKeydown = (evt) => {
-      console.log("Key pressed:", evt.key); // Debugging line to log key presses
-
-      // Check for Enter key or newline character to submit barcode
-      if (evt.code === "Enter" || evt.key === "\n") {
-        if (barcode) {
-          setScannedBarcodes((prevBarcodes) => [barcode, ...prevBarcodes]); // Add new barcode at the top
-          setBarcode(""); // Reset barcode after submission
-        }
+    const handleScan = (event) => {
+      setLoading(true);
+      if (
+        event.key === "Shift" ||
+        event.key === "Control" ||
+        event.key === "Alt"
+      ) {
         return;
       }
 
-      // Ignore Shift key or other non-character keys
-      if (evt.key !== "Shift") {
-        setBarcode((prevBarcode) => prevBarcode + evt.key);
+      setCurrentScan((prev) => prev + event.key);
+
+      if (timeoutId) {
+        clearTimeout(timeoutId);
       }
 
-      // Clear the barcode if idle for 5 seconds after the last key press
-      clearTimeout(timeout);
-      timeout = setTimeout(() => setBarcode(""), 5000); // Clears barcode after 5 seconds of inactivity
+      // Set a timeout to trigger the scan completion after a small delay ( 200ms)
+      const newTimeoutId = setTimeout(() => {
+        if (currentScan) {
+          onScan(currentScan);
+          setCurrentScan("");
+        }
+      }, 200);
+
+      setTimeoutId(newTimeoutId);
+      setLoading(false);
     };
 
-    // Attach the event listener
-    document.addEventListener("keydown", handleKeydown);
-
-    // Cleanup event listener on component unmount
+    window.addEventListener("keydown", handleScan);
     return () => {
-      document.removeEventListener("keydown", handleKeydown);
-      clearTimeout(timeout); // Clear any remaining timeout on unmount
+      window.removeEventListener("keydown", handleScan);
     };
-  }, [barcode]); // Effect depends on barcode state
+  }, [currentScan, onScan, timeoutId]);
 
-  return (
-    <div>
-      <h1>Simple Barcode Scanner</h1>
-      <strong>Scanned barcodes:</strong>
-      <div id="scanned-barcodes">
-        {scannedBarcodes.map((code, index) => (
-          <p key={index}>{code}</p> // Display each scanned barcode on a new line
-        ))}
-      </div>
-    </div>
-  );
+  return <div>{loading && <p>Loading...</p>}</div>;
 };
 
-export default Scanner;
+export default BarcodeScanner;
