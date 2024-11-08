@@ -8,3 +8,16 @@
   box-sizing: border-box;
   min-height: 100%;
 }
+.red {
+  color: red;
+  font-size: 20px;
+}
+
+.purple {
+  color: purple;
+  font-size: 20px;
+}
+.deafault {
+  color: black;
+  font-size: 20px;
+}

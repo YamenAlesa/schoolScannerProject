@@ -1,14 +1,21 @@
-import "./App.css";
-import Layout from "./components/layout";
-import Clock from "./components/clock";
-function App() {
+import React, { useState } from "react";
+import Scanner from "./components/scanning";
+import AirtableComponent from "./components/airtableAPI";
+
+const App = () => {
+  const [scannedBarcode, setScannedBarcode] = useState("");
+
+ 
+  const handleBarcodeScan = (barcode) => {
+    setScannedBarcode(barcode); 
+  };
+
   return (
-    <Layout>
-      <h1>Välkomna! This is the food app for NTI - for the pull request</h1>
-      <hr />
-      <Clock />
-    </Layout>
+    <div>
+      <Scanner onScan={handleBarcodeScan} /> 
+      <AirtableComponent barcode={scannedBarcode} />
+    </div>
   );
-}
+};
 
 export default App;
