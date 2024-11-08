@@ -7,7 +7,7 @@ const Layout = ({ children }) => {
     <>
         <Clock />
       <main>{children}</main>
-      <Scanner />
+      {/* <Scanner /> */}
     </>
   );
 };
