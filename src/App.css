@@ -7,3 +7,16 @@
   padding: 0;
   box-sizing: border-box;
 }
+.red {
+  color: red;
+  font-size: 20px;
+}
+
+.purple {
+  color: purple;
+  font-size: 20px;
+}
+.deafault {
+  color: black;
+  font-size: 20px;
+}
