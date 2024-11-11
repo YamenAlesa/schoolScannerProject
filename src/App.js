@@ -1,14 +1,14 @@
-
 import React, { useState } from "react";
 import Scanner from "./components/scanning";
 import AirtableComponent from "./components/airtableAPI";
+import Clock from "./components/clock";
+import Daymenu from "./components/daymenu";
 
 const App = () => {
   const [scannedBarcode, setScannedBarcode] = useState("");
 
- 
   const handleBarcodeScan = (barcode) => {
-    setScannedBarcode(barcode); 
+    setScannedBarcode(barcode);
   };
 
   return (
@@ -17,7 +17,7 @@ const App = () => {
       <hr />
       <Daymenu />
       <Clock />
-      <Scanner onScan={handleBarcodeScan} /> 
+      <Scanner onScan={handleBarcodeScan} />
       <AirtableComponent barcode={scannedBarcode} />
     </div>
   );
