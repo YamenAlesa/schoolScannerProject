@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Scanner from "./components/scanning";
 import AirtableComponent from "./components/airtableAPI";
+import Clock from "./components/clock";
+import Daymenu from "./components/daymenu";
 
 const App = () => {
   const [scannedBarcode, setScannedBarcode] = useState("");
