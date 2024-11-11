@@ -3,7 +3,7 @@ import Airtable from "airtable";
 import BarcodeScanner from "./scanning";
 
 const apiKey = process.env.REACT_APP_AIRTABLE_API_KEY;
-const base = new Airtable({ apiKey }).base("appQe2hcI1lRCovLG");
+const base = new Airtable({ apiKey }).base(process.env.REACT_APP_AIRTABLE_BASE);
 
 const DataFetcher = () => {
   const [listItems, setListItems] = useState([]);
