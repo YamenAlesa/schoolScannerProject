@@ -70,7 +70,6 @@ const DataFetcher = () => {
   return (
     <div>
       <BarcodeScanner onScan={handleScan} />
-      
 
       {loading && <p>Loading...</p>}
       <ul>
