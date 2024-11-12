@@ -6,7 +6,14 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
+
+body {
+  font-family: "Nunito", sans-serif;
+  height: 100%;
+}
+
 .red {
   color: red;
   font-size: 20px;
@@ -16,6 +23,7 @@
   color: purple;
   font-size: 20px;
 }
+
 .deafault {
   color: black;
   font-size: 20px;
