@@ -13,7 +13,7 @@ const App = () => {
 
   return (
     <div>
-      <h1>Välkomna! This is the food app for NTI</h1>
+      <h1>Välkomna!</h1>
       <hr />
       <Daymenu />
       <Clock />
