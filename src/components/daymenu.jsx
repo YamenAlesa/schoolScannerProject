@@ -40,14 +40,14 @@ const Daymenu = () => {
     setTimeout(() => {
       fetchDataDagen();
       fetchDataVecka();
-    }, 3000);
+    }, 1000);
   }, []);
   return (
     <div>
       <div className="food-day">
         {loading ? (
           <>
-            <p>Loading...</p>
+            <p>Laddar...</p>
           </>
         ) : (
           error
@@ -55,7 +55,7 @@ const Daymenu = () => {
 
         {foodDay ? (
           <>
-            <h1>Food of the Day: </h1>
+            <h1>Dagensrätt:</h1>
             <p>
               <b>Mat:</b> {foodDay[0]?.description.split("<br/>")[0]}
             </p>
@@ -66,10 +66,10 @@ const Daymenu = () => {
         ) : (
           error
         )}
-        <h1>Veckans mat</h1>
+        <h1>Veckans mat:</h1>
         {loading ? (
           <>
-            <p>Loading...</p>
+            <p>Laddar...</p>
           </>
         ) : (
           error
