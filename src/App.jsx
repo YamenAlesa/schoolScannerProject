@@ -11,8 +11,8 @@ const App = () => {
   const handleBarcodeScan = (barcode) => {
     setScannedBarcode(barcode);
   };
-  
-  return (
+
+  return     
     <div>
       <h1>Välkomna! This is the food app for NTI</h1>
       <hr />
@@ -21,7 +21,7 @@ const App = () => {
       <Scanner onScan={handleBarcodeScan} />
       <AirtableComponent barcode={scannedBarcode} />
     </div>
-  );
+
 };
 
 export default App;
