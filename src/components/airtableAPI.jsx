@@ -19,7 +19,6 @@ const DataFetcher = () => {
     if (!scannedId) return;
 
     if (scannedCache[scannedId]) {
-     
       setListItems((prevList) => [scannedCache[scannedId], ...prevList]);
       return;
     }
@@ -28,7 +27,6 @@ const DataFetcher = () => {
 
     const fetchRecord = async () => {
       try {
-       
         const records = await base("Sheet1")
           .select({
             fields: ["Id", "Namn", "isPersonal", "Creator"],
@@ -37,7 +35,6 @@ const DataFetcher = () => {
           .firstPage();
 
         if (records.length > 0) {
-          
           const record = records[0];
           const newItem = {
             namn: record.get("Namn"),
@@ -45,7 +42,6 @@ const DataFetcher = () => {
             creator: record.get("Creator"),
           };
 
-      
           setScannedCache((prevCache) => ({
             ...prevCache,
             [scannedId]: newItem,
@@ -56,7 +52,6 @@ const DataFetcher = () => {
               : [newItem, ...prevList]
           );
         } else {
-          
           console.log("ID not found in Airtable. Checking external API...");
           const response = await fetch(
             "https://ntifoodpeople.vercel.app/api/users"
@@ -68,19 +63,17 @@ const DataFetcher = () => {
           if (user) {
             const newItem = {
               namn: user.username,
-              isPersonal: user.teacher, 
-              creator: false, 
+              isPersonal: user.teacher,
+              creator: false,
             };
 
-           
             await base("Sheet1").create({
               Id: scannedId,
               Namn: user.username,
-              isPersonal: user.teacher, 
-              Creator: false, 
+              isPersonal: user.teacher,
+              Creator: false,
             });
 
-    
             setScannedCache((prevCache) => ({
               ...prevCache,
               [scannedId]: newItem,
@@ -110,11 +103,11 @@ const DataFetcher = () => {
       <BarcodeScanner onScan={handleScan} />
 
       {loading && <p>Loading...</p>}
-      <ul>
+      <ul className="bg-orange">
         {listItems.map((item, index) => {
           let color = "";
           if (item.creator) {
-            color = "red";
+            color = "gold";
           } else if (item.isPersonal) {
             color = "purple";
           }
