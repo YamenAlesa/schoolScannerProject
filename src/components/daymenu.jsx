@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 
 const Daymenu = () => {
-  const [foodWeek, setFoodWeek] = useState([]);
   const [foodDay, setFoodDay] = useState([]);
+  const [foodWeek, setFoodWeek] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -21,6 +21,7 @@ const Daymenu = () => {
       setLoading(false);
     }
   }
+
   async function fetchDataDagen() {
     try {
       setLoading(true);
@@ -36,55 +37,46 @@ const Daymenu = () => {
       setLoading(false);
     }
   }
-  useEffect(() => {
-    setTimeout(() => {
-      fetchDataDagen();
-      fetchDataVecka();
-    }, 3000);
-  }, []);
-  return (
-    <div>
-      <div className="food-day">
-        {loading ? (
-          <>
-            <p>Loading...</p>
-          </>
-        ) : (
-          error
-        )}
 
-        {foodDay ? (
-          <>
-            <h1>Food of the Day: </h1>
-            <p>
-              <b>Mat:</b> {foodDay[0]?.description.split("<br/>")[0]}
-            </p>
-            <p>
-              <b>Vegan mat:</b> {foodDay[0]?.description.split("<br/>")[1]}
-            </p>
-          </>
-        ) : (
-          error
-        )}
-        <h1>Veckans mat</h1>
+  useEffect(() => {
+    fetchDataDagen();
+    fetchDataVecka();
+  }, []);
+
+  return (
+    <div className="flex justify-center gap-8 p-6 fit">
+      <div className="relative w-96 rounded-lg shadow-lg overflow-hidden">
+        <img
+          src="/imgs/foodimg.png"
+          alt="Food of the Day"
+          className="w-1/2 h-full object-cover"
+        />
+
+        <div className=" absolute top-8 left-1/2 transform -translate-x-1/2 w-1/2 bg-gray_light  rounded-lg p-4 shadow-md">
+          <h2 className="text-lg font-bold text-center">Dagens Lunch</h2>
+          <p className="text-sm text-center">
+            <strong>Mat:</strong> {foodDay[0]?.description.split("<br/>")[0]}
+          </p>
+          <p className="text-sm text-center">
+            <strong>Vegan:</strong> {foodDay[0]?.description.split("<br/>")[1]}
+          </p>
+        </div>
+      </div>
+
+      <div className="w-64 p-4 bg-gray_light bg-opacity-90 rounded-lg shadow-lg">
+        <h2 className="text-lg font-bold">Veckans Lunch</h2>
         {loading ? (
-          <>
-            <p>Loading...</p>
-          </>
+          <p>Loading...</p>
         ) : (
-          error
+          <ul>
+            {foodWeek.map((food, index) => (
+              <li key={index} className="mb-2">
+                <strong>{food.title}:</strong>{" "}
+                {food.description.split("<br/>")[0]}
+              </li>
+            ))}
+          </ul>
         )}
-        {foodWeek.map((food) => {
-          return (
-            <div>
-              <h2> {food.title}: </h2>
-              <ul>
-                <li>{food.description.split("<br/>")[0]}</li>
-                <li>{food.description.split("<br/>")[1]}</li>
-              </ul>
-            </div>
-          );
-        })}
       </div>
     </div>
   );

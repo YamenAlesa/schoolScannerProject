@@ -99,11 +99,12 @@ const DataFetcher = () => {
   }, [scannedId, scannedCache]);
 
   return (
-    <div>
+    <div className="flex flex-col items-center bg-gray_light bg-opacity-60 rounded-lg p-6 shadow-lg max-w-sm min-h-80">
       <BarcodeScanner onScan={handleScan} />
 
+      <h2 className="text-xl font-bold text-center mb-4">Namn</h2>
       {loading && <p>Loading...</p>}
-      <ul className="bg-orange">
+      <ul className="space-y-4">
         {listItems.map((item, index) => {
           let color = "";
           if (item.creator) {
@@ -115,7 +116,11 @@ const DataFetcher = () => {
           const fontSize = "20px";
 
           return (
-            <li key={index} style={{ color, fontSize }}>
+            <li
+              key={index}
+              style={{ color, fontSize }}
+              className="flex items-center "
+            >
               {item.namn}
             </li>
           );

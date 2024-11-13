@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import Scanner from "./components/scanning";
 import AirtableComponent from "./components/airtableAPI";
 import Clock from "./components/clock";
@@ -12,7 +13,7 @@ const App = () => {
   };
 
   return (
-    <div>
+    <div className="min-h-screen bg-gray">
       <h1>Välkomna!</h1>
       <hr />
       <Daymenu />

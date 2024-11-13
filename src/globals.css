@@ -1,9 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-:root {
-  --main: #728532;
-}
 * {
   margin: 0;
   padding: 0;
@@ -11,9 +8,14 @@
   scroll-behavior: smooth;
 }
 
-body {
+.html {
+  height: 100%;
+}
+
+.body {
   font-family: "Nunito", sans-serif;
   height: 100%;
+  background-color: black;
 }
 
 .red {
@@ -30,3 +32,4 @@ body {
   color: black;
   font-size: 20px;
 }
+
