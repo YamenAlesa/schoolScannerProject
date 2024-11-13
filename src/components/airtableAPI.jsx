@@ -95,16 +95,24 @@ const DataFetcher = () => {
       }
     };
 
+    const list = document.getElementById("list");
+    if (listItems.length) {
+      list.scroll({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+
     fetchRecord();
   }, [scannedId, scannedCache]);
 
   return (
-    <div className="flex flex-col items-center bg-gray_light bg-opacity-60 rounded-lg p-6 shadow-lg max-w-sm min-h-80">
+    <div className="flex flex-col items-center bg-gray_light bg-opacity-60 shadow-lg p-6 rounded-lg w-full h-80 overflow-x-hidden overflow-y-scroll">
       <BarcodeScanner onScan={handleScan} />
 
-      <h2 className="text-xl font-bold text-center mb-4">Namn</h2>
+      <h2 className="mb-4 font-bold text-center text-xl">Namn</h2>
       {loading && <p>Loading...</p>}
-      <ul className="space-y-4">
+      <ul className="space-y-4" id="list">
         {listItems.map((item, index) => {
           let color = "";
           if (item.creator) {
@@ -119,7 +127,7 @@ const DataFetcher = () => {
             <li
               key={index}
               style={{ color, fontSize }}
-              className="flex items-center "
+              className="flex items-center"
             >
               {item.namn}
             </li>

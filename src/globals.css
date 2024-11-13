@@ -18,6 +18,19 @@
   background-color: black;
 }
 
+main {
+  max-width: 1200px;
+  height: 70vh;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 20% 50% 30%;
+  justify-items: center;
+  place-items: center;
+
+  padding: 1rem;
+  margin: 0 auto;
+}
+
 .red {
   color: red;
   font-size: 20px;
