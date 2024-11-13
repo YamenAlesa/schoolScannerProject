@@ -11,10 +11,9 @@ const Clock = () => {
   });
 
   return (
-    <div className="flex  bg-blue">
-      <h1>{actualTime}</h1>
-      <br />
-      <h2>{today}</h2>
+    <div className="flex gap-2 bg-darkpurple/50 p-2 rounded-md border border-darkpurple">
+      <time className="text-xl text-white">{actualTime}</time>
+      <time className="text-xl text-white">{today}</time>
     </div>
   );
 };
