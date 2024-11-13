@@ -22,13 +22,13 @@ const BarcodeScanner = ({ onScan }) => {
         clearTimeout(timeoutId);
       }
 
-      // Set a timeout to trigger the scan completion after a small delay ( 200ms)
+      // Set a timeout to trigger the scan completion after a small delay ( 100ms)
       const newTimeoutId = setTimeout(() => {
         if (currentScan) {
           onScan(currentScan);
           setCurrentScan("");
         }
-      }, 1000);
+      }, 100);
 
       setTimeoutId(newTimeoutId);
       setLoading(false);
