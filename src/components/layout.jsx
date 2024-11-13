@@ -1,15 +1,11 @@
 import React from "react";
-import Scanner from "./scanning";
-import Clock from "./clock";
-import Daymenu from "./daymenu";
+import Header from "./header";
 
 const Layout = ({ children }) => {
   return (
     <>
-        <Clock />
-        <Daymenu />
-      <main>{children}</main>
-      <Scanner />
+      <Header />
+      <main className="flex justify-center items-center">{children}</main>
     </>
   );
 };
