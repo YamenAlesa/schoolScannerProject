@@ -8,14 +8,14 @@
   scroll-behavior: smooth;
 }
 
-.html {
-  height: 100%;
+html {
+  height: 100vh;
 }
 
-.body {
+body {
   font-family: "Nunito", sans-serif;
   height: 100%;
-  background-color: black;
+  background-color: blueviolet;
 }
 
 main {
@@ -26,7 +26,6 @@ main {
   grid-template-columns: 20% 50% 30%;
   justify-items: center;
   place-items: center;
-
   padding: 1rem;
   margin: 0 auto;
 }

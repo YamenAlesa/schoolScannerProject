@@ -115,7 +115,9 @@ const DataFetcher = () => {
       <ul className="space-y-4" id="list">
         {listItems.map((item, index) => {
           let color = "";
+          let fontFamily = "";
           if (item.creator) {
+            fontFamily = "cursive";
             color = "gold";
           } else if (item.isPersonal) {
             color = "purple";
@@ -126,7 +128,7 @@ const DataFetcher = () => {
           return (
             <li
               key={index}
-              style={{ color, fontSize }}
+              style={{ color, fontSize, fontFamily }}
               className="flex items-center"
             >
               {item.namn}
