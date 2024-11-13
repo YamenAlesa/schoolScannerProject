@@ -11,7 +11,7 @@ const Clock = () => {
   });
 
   return (
-    <div>
+    <div className="flex  bg-blue">
       <h1>{actualTime}</h1>
       <br />
       <h2>{today}</h2>
