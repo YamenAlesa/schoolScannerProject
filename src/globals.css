@@ -30,17 +30,9 @@ main {
   margin: 0 auto;
 }
 
-.red {
-  color: red;
-  font-size: 20px;
-}
-
-.purple {
-  color: purple;
-  font-size: 20px;
-}
-
-.deafault {
-  color: black;
-  font-size: 20px;
+#div-img {
+  background-image: url("../public/imgs/foodimgs.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
