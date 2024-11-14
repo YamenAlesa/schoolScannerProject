@@ -3,6 +3,7 @@ import AirtableComponent from "./components/airtableAPI";
 import Layout from "./components/layout";
 import Weekmenu from "./components/weekmenu";
 import Banner from "./components/banner";
+import Weatherapi from "./components/weatherapi";
 
 const App = () => {
   return (
@@ -13,7 +14,10 @@ const App = () => {
           <Daymenu />
           <Banner text="Öppettider: 11:00 - 13:00" />
         </div>
-        <Weekmenu />
+        <div className="flex flex-col justify-evenly h-full">
+          <Weatherapi />
+          <Weekmenu />
+        </div>
       </Layout>
     </div>
   );
