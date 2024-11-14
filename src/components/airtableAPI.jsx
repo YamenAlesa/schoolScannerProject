@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Airtable from "airtable";
 import BarcodeScanner from "./scanning";
+import { FaCrown } from "react-icons/fa";
 
 const apiKey = process.env.REACT_APP_AIRTABLE_API_KEY;
 const base = new Airtable({ apiKey }).base(process.env.REACT_APP_AIRTABLE_BASE);
@@ -116,7 +117,9 @@ const DataFetcher = () => {
         {listItems.map((item, index) => {
           let color = "";
           let fontFamily = "";
+          let icons = null;
           if (item.creator) {
+            icons = <FaCrown style={{ color: "black" }} />;
             fontFamily = "cursive";
             color = "gold";
           } else if (item.isPersonal) {
@@ -131,7 +134,7 @@ const DataFetcher = () => {
               style={{ color, fontSize, fontFamily }}
               className="flex items-center"
             >
-              {item.namn}
+              {icons && <span className="mr-1">{icons}</span>} {item.namn} {icons && <span className="ml-1">{icons}</span>}
             </li>
           );
         })}

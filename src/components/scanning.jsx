@@ -28,7 +28,7 @@ const BarcodeScanner = ({ onScan }) => {
           onScan(currentScan);
           setCurrentScan("");
         }
-      }, 100);
+      }, 500);
 
       setTimeoutId(newTimeoutId);
       setLoading(false);
