@@ -134,7 +134,8 @@ const DataFetcher = () => {
               style={{ color, fontSize, fontFamily }}
               className="flex items-center"
             >
-              {icons && <span className="mr-1">{icons}</span>} {item.namn} {icons && <span className="ml-1">{icons}</span>}
+              {icons && <span className="mr-1">{icons}</span>} {item.namn}{" "}
+              {icons && <span className="ml-1">{icons}</span>}
             </li>
           );
         })}
