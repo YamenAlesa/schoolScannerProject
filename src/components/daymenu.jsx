@@ -26,17 +26,11 @@ const Daymenu = () => {
   }, []);
 
   return (
-    <div className="flex justify-center gap-8 p-6 w-full">
-      <div className="flex shadow-lg rounded-lg">
-        <img
-          src="/imgs/foodimg.png"
-          alt="Food of the Day"
-          className="w-1/2 h-full object-cover"
-        />
-
+    <div className="flex flex-col content-end w-full rounded-md" id="div-img">
+      <div className="flex justify-end shadow-lg rounded-lg h-96 w-full">
         <div className="flex flex-col justify-evenly bg-gray_light shadow-md p-4 rounded-lg w-1/2">
           {/**/}
-          <h2 className="font-bold text-center text-lg">Dagens Lunch</h2>
+          <h2 className="font-bold text-2xl text-center mb-4">Dagens Lunch</h2>
           <p className="text-center text-sm">
             <strong>Mat:</strong> {foodDay[0]?.description.split("<br/>")[0]}
           </p>

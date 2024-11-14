@@ -26,14 +26,14 @@ const Weekmenu = () => {
   }, []);
   return (
     <div className="bg-gray_light bg-opacity-90 shadow-lg p-4 rounded-lg w-full">
-      <h2 className="font-bold text-lg">Veckans Lunch</h2>
+      <h2 className="font-bold text-2xl text-center mb-4">Veckans Lunch</h2>
       {loading ? (
         <p>Loading...</p>
       ) : (
         <ul>
           {foodWeek.map((food, index) => (
             <li key={index} className="mb-2">
-              <strong>{food.title}:</strong>{" "}
+              <strong>{food.title.split(" ")[0]}: </strong>{" "}
               {food.description.split("<br/>")[0]}
             </li>
           ))}
