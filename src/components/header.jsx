@@ -1,11 +1,13 @@
 import React from "react";
 import Clock from "./clock";
 import { PiForkKnifeBold } from "react-icons/pi";
+import Weatherapi from "./weatherapi";
 
 const Header = () => {
   return (
     <>
-      <div className="flex justify-center items-center mt-10">
+      <Weatherapi />
+      <div className="flex justify-center items-center">
         <Clock />
       </div>
       <div className="max-w-[1200px] mx-auto mt-20 h-fit flex flex-col items-center gap-4">

@@ -20,14 +20,17 @@ body {
 
 main {
   max-width: 1200px;
-  height: 70vh;
+  height: fit-content;
+  margin: 0 auto;
+}
+
+.grid {
+  width: 100%;
   display: grid;
-  gap: 1rem;
   grid-template-columns: 20% 50% 30%;
   justify-items: center;
-  place-items: center;
-  padding: 1rem;
-  margin: 0 auto;
+  /* place-items: center; */
+  margin: 2rem;
 }
 
 #div-img {
