@@ -24,10 +24,9 @@ const Weekmenu = () => {
   useEffect(() => {
     fetchDataVecka();
   }, []);
-  
+
   return (
-  
-    <div className="bg-gray_light bg-opacity-90 shadow-lg p-4 rounded-lg w-full">
+    <div className="bg-gray_light bg-opacity-90 shadow-lg p-4 rounded-lg w-full h-full">
       <h2 className="font-bold text-2xl text-center mb-4">❤ Veckans Lunch</h2>
       {loading ? (
         <p>Loading...</p>
