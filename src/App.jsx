@@ -5,14 +5,15 @@ import Weekmenu from "./components/weekmenu";
 import Banner from "./components/banner";
 import DataFetcher from "./components/DataFetcher"; // Updated import for the renamed component
 import Weatherapi from "./components/weatherapi";
-
+import AnimatedBackground from "./components/animatedBackground";
 
 const App = () => {
   return (
     <div>
+      <AnimatedBackground />
       <Layout>
         {/* DataFetcher (Airtable functionality) */}
-        <DataFetcher /> 
+        <DataFetcher />
         {/* Main content */}
         <div className="flex flex-col justify-center items-center gap-4">
           <Daymenu />
