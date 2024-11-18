@@ -1,11 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url(https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
 }
 
 html {
@@ -19,11 +22,11 @@ body {
 }
 
 main {
-  max-width: 1200px;
-  height: 70vh;
+  max-width: 85%;
+  height: 80vh;
   display: grid;
-  gap: 1rem;
-  grid-template-columns: 20% 50% 30%;
+  gap: 2rem;
+  grid-template-columns: 33% 33% 33%;
   justify-items: center;
   place-items: center;
   padding: 1rem;
