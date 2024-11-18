@@ -7,11 +7,13 @@ import Weatherapi from "./components/weatherapi";
 import AnimatedBackground from "./components/animatedBackground";
 import Clock from "./components/clock";
 
+
 const App = () => {
   return (
     <div>
       <AnimatedBackground />
       <Layout>
+
         <div className="day">
           <Daymenu />
         </div>
