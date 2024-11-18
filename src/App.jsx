@@ -15,7 +15,6 @@ const App = () => {
           <Banner text="Öppettider: 11:00 - 13:00" />
         </div>
         <div className="flex flex-col justify-evenly h-full">
-          <Weatherapi />
           <Weekmenu />
         </div>
       </Layout>

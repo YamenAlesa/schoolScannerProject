@@ -37,11 +37,11 @@ const Weatherapi = () => {
   return (
     <div>
       <div
-        className="flex flex-col items-center bg-gray_light/50 rounded-md w-96"
+        className="flex justify-center items-center bg-gray_light/50 rounded-md w-72"
         id="weather-display"
       >
         <img src={sourceImage} alt="Weather image" />
-        <h2 className="font-bold text-2xl text-darkpurple">{temperature}°C</h2>
+        <h2 className="font-bold text-2xl">{temperature}°C</h2>
       </div>
     </div>
   );
