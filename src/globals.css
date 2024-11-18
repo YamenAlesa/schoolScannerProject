@@ -19,15 +19,29 @@ body {
 }
 
 main {
-  max-width: 1200px;
-  height: 70vh;
+  padding: 2rem;
+  z-index: 1;
   display: grid;
-  gap: 1rem;
-  grid-template-columns: 20% 50% 30%;
-  justify-items: center;
-  place-items: center;
-  padding: 1rem;
-  margin: 0 auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 20px 20px;
+  grid-template-areas:
+    "day day names names week week"
+    "day day names names week week"
+    ". . names names . .";
+  gap: 2rem;
+}
+
+.day {
+  grid-area: day;
+}
+
+.names {
+  grid-area: names;
+}
+
+.week {
+  grid-area: week;
 }
 
 #div-img {
@@ -44,6 +58,7 @@ main {
 }
 
 .layout {
+  width: 100%;
   z-index: 1;
 }
 
