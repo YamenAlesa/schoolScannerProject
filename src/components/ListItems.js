@@ -9,10 +9,7 @@ const ListItem = ({ item }) => {
   const fontSize = "20px";
 
   return (
-    <li
-      style={{ color, fontSize, fontFamily }}
-      className="flex items-center"
-    >
+    <li style={{ color, fontSize, fontFamily }} className="flex items-center">
       {creator && <FaCrown className="mr-1" style={{ color: "black" }} />}
       {namn}
       {creator && <FaCrown className="ml-1" style={{ color: "black" }} />}
