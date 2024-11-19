@@ -35,7 +35,7 @@ const Weekmenu = () => {
       ) : (
         <ul>
           {foodWeek.map((food, index) => (
-            <li key={index} className="mb-2">
+            <li key={index} className="mb-2 text-gray_dark">
               <strong>{food.title.split(" ")[0]} </strong>
               <br />
               {food.description.split("<br/>")[0]}

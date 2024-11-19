@@ -41,7 +41,7 @@ const Weatherapi = () => {
         id="weather-display"
       >
         <img src={sourceImage} alt="Weather image" />
-        <h2 className="font-bold text-2xl text-gray_dark">{temperature}°C</h2>
+        <h2 className="font-bold text-2xl text-white">{temperature}°C</h2>
       </div>
     </div>
   );
