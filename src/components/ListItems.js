@@ -6,13 +6,16 @@ const ListItem = ({ item }) => {
 
   const color = creator ? "#ffc93c" : isPersonal ? "purple" : "inherit";
   const fontFamily = creator ? "cursive" : "inherit";
-  const fontSize = "20px";
+  const fontSize = "30px";
 
   return (
-    <li style={{ color, fontSize, fontFamily }} className="flex items-center">
-      {creator && <FaCrown className="mr-1" style={{ color: "black" }} />}
+    <li
+      style={{ color, fontSize, fontFamily }}
+      className="flex text-center items-center"
+    >
+      {creator && <FaCrown className="mr-1 " style={{ color: "black" }} />}
       {namn}
-      {creator && <FaCrown className="ml-1" style={{ color: "black" }} />}
+      {creator && <FaCrown className="ml-1 " style={{ color: "black" }} />}
     </li>
   );
 };

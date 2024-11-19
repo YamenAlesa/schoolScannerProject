@@ -26,7 +26,7 @@ const Weekmenu = () => {
   }, []);
 
   return (
-    <div className="bg-gray_light/50 bg-opacity-90 shadow-lg p-4 rounded-lg w-full h-fit">
+    <div className="bg-gray_light/80 shadow-lg p-4 rounded-lg w-full h-fit">
       <h2 className="font-bold text-2xl text-center text-gray_dark mb-4">
         ❤ Veckans Lunch
       </h2>
