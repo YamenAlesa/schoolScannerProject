@@ -40,10 +40,10 @@ const Weekmenu = () => {
             <li
               key={index}
               className={
-                day === index ? "mb-2 text-orange" : "mb-2 text-gray_dark"
+                day === index + 1 ? "mb-2 text-orange" : "mb-2 text-gray_dark"
               }
             >
-              <strong>{day === food.title.split(" ")[0]} </strong>
+              <strong>{food.title.split(" ")[0]} </strong>
               <br />
               {food.description.split("<br/>")[0]}
               <br />

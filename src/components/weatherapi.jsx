@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Clock from "./clock";
 
 const Weatherapi = () => {
   const [weather, setWeather] = useState("");
@@ -35,13 +36,15 @@ const Weatherapi = () => {
     RetrieveWeatherData();
   }, []);
   return (
-    <div>
-      <div
-        className="flex justify-center items-center rounded-md w-72"
-        id="weather-display"
-      >
-        <img src={sourceImage} alt="Weather image" />
-        <h2 className="font-bold text-2xl text-white">{temperature}°C</h2>
+    <div className="flex items-center rounded-md h-full w-full">
+      <img
+        src={sourceImage}
+        alt="Weather image"
+        className="min-h-[150px] min-w-[150px]"
+      />
+      <div className="flex flex-col items-center justify-evenly">
+        <h2 className="font-bold text-2xl text-gray_dark">{temperature}°C</h2>
+        <Clock />
       </div>
     </div>
   );

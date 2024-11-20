@@ -5,22 +5,16 @@ import Weekmenu from "./components/weekmenu";
 import DataFetcher from "./components/DataFetcher"; // Updated import for the renamed component
 import Weatherapi from "./components/weatherapi";
 import AnimatedBackground from "./components/animatedBackground";
-import Clock from "./components/clock";
-
 
 const App = () => {
   return (
     <div>
       <AnimatedBackground />
       <Layout>
-
-        <div className="day">
-          <Daymenu />
-        </div>
-        <div className="names">
+        <div className="names h-fit">
           <DataFetcher />
         </div>
-        <div className="week">
+        <div className="week h-fit">
           <Weekmenu />
         </div>
       </Layout>
