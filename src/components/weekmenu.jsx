@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import qrcode from "../images/feedBackQRcode.png";
+import { BiBorderRadius } from "react-icons/bi";
 
 const Weekmenu = () => {
   const [foodWeek, setFoodWeek] = useState([]);
@@ -40,7 +42,7 @@ const Weekmenu = () => {
             <li
               key={index}
               className={
-                day === index + 1 ? "mb-2 text-orange" : "mb-2 text-gray_dark"
+                day === index + 1 ? "mb-2 p-4 bg-meteorite text-white rounded-3xl shadow-2xl"  :  "mb-2 text-gray_dark"
               }
             >
               <strong>{food.title.split(" ")[0]} </strong>
@@ -52,8 +54,11 @@ const Weekmenu = () => {
           ))}
         </ul>
       )}
+    <>
+      <img src={qrcode} alt="qr code" className="flex w-40 h-40 items-end " />
+    </>
     </div>
-  );
+    );
 };
 
 export default Weekmenu;

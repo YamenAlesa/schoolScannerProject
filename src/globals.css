@@ -45,10 +45,4 @@ main {
   grid-area: week;
 }
 
-#div-img {
-  background-image: url("../public/imgs/foodimgs.png");
-  height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+
