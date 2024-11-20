@@ -1,29 +1,30 @@
-import React from "react";
-import BarcodeScanner from "./scanning";
-import ListItem from "./ListItems";
-import { useScanHandler } from "../hooks/useScanHandler";
+import React, { useState } from "react";
+import BarcodeScanner from "../components/scanning";
+import ListItem from "../components/ListItems";
+import useDataFetcher from "../hooks/useScanHandler";
 
 const DataFetcher = () => {
-  const { listItems, setScannedId, loading } = useScanHandler();
+  const [scannedId, setScannedId] = useState("");
+  const { listItems, loading, feedback } = useDataFetcher(scannedId);
 
   const handleScan = (scanResult) => {
     setScannedId(scanResult.toLowerCase().trim());
   };
 
   return (
-    <div className="flex flex-col items-center bg-gray_light/80 bg-opacity-60 shadow-xl p-6 rounded-lg w-full h-96 overflow-x-hidden overflow-y-scroll">
+    <div className="flex flex-col items-center bg-gray_light bg-opacity-60 shadow-lg p-6 rounded-lg w-full h-96 overflow-x-hidden overflow-y-scroll">
       <BarcodeScanner onScan={handleScan} />
 
-      <h2 className="mb-4 font-bold text-center text-2xl text-gray_dark">
-        Namn
-      </h2>
+      <h2 className="mb-4 font-bold text-center text-xl">Namn</h2>
+
+      {feedback && <p className="text-red-500 text-sm mb-2">{feedback}</p>}
+
       {loading && <p>Loading...</p>}
+
       <ul className="space-y-4" id="list">
-        <li>
-          {listItems.map((item, index) => (
-            <ListItem key={index} item={item} />
-          ))}
-        </li>
+        {listItems.map((item, index) => (
+          <ListItem key={index} item={item} />
+        ))}
       </ul>
     </div>
   );
