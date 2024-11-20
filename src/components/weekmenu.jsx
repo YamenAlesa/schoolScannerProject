@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 const Weekmenu = () => {
   const [foodWeek, setFoodWeek] = useState([]);
+  const [day, setDay] = useState(new Date().getDay());
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -13,6 +14,7 @@ const Weekmenu = () => {
       );
       const data = await response.json();
       setFoodWeek(data.items);
+      console.log(data.items);
     } catch (error) {
       console.error("Error: ", error);
       setError(error);
@@ -35,8 +37,13 @@ const Weekmenu = () => {
       ) : (
         <ul>
           {foodWeek.map((food, index) => (
-            <li key={index} className="mb-2 text-gray_dark">
-              <strong>{food.title.split(" ")[0]} </strong>
+            <li
+              key={index}
+              className={
+                day === index ? "mb-2 text-orange" : "mb-2 text-gray_dark"
+              }
+            >
+              <strong>{day === food.title.split(" ")[0]} </strong>
               <br />
               {food.description.split("<br/>")[0]}
               <br />

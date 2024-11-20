@@ -16,6 +16,7 @@ module.exports = {
       gray_dark: "#273444",
       gray: "#8492a6",
       gray_light: "#d3dce6",
+      meteorite: "#371f76",
     },
     fontFamily: {
       sans: ["Graphik", "sans-serif"],
