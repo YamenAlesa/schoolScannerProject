@@ -40,10 +40,12 @@ const Weatherapi = () => {
       <img
         src={sourceImage}
         alt="Weather image"
-        className="min-h-[150px] min-w-[150px]"
+        className="min-h-[150px] min-w-[150px] p-0 rounded-full"
       />
       <div className="flex flex-col items-center justify-evenly">
-        <h2 className="font-bold text-2xl text-gray_dark">{temperature}°C</h2>
+        <h2 className="font-bold text-3xl text-darkerpurple">
+          {temperature}°C
+        </h2>
         <Clock />
       </div>
     </div>
