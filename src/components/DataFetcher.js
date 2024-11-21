@@ -12,16 +12,19 @@ const DataFetcher = () => {
   };
 
   return (
-    <div className="flex flex-col items-center bg-gray_light bg-opacity-60 shadow-lg p-6 rounded-lg w-full h-96 overflow-x-hidden overflow-y-scroll">
+    <div
+      id="scanned-name-box"
+      className="flex flex-col items-center bg-gray_dark/60 shadow-lg p-6 rounded-lg w-full h-full min-h-[500px] max-h-[500px] overflow-x-hidden overflow-y-scroll"
+    >
       <BarcodeScanner onScan={handleScan} />
 
-      <h2 className="mb-4 font-bold text-center text-xl">Namn</h2>
+      <h2 className="mb-4 font-bold text-center text-xl text-white">Namn</h2>
 
-      {feedback && <p className="text-red-500 text-sm mb-2">{feedback}</p>}
+      {feedback && <p className="text-white text-sm mb-2">{feedback}</p>}
 
-      {loading && <p>Loading...</p>}
+      {loading && <p className="text-white">Loading...</p>}
 
-      <ul className="space-y-4" id="list">
+      <ul className="text-white space-y-4" id="list">
         {listItems.map((item, index) => (
           <ListItem key={index} item={item} />
         ))}
