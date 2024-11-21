@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BiBorderRadius } from "react-icons/bi";
+import "../borderanimation.css";
 
 const Weekmenu = () => {
   const [foodWeek, setFoodWeek] = useState([]);
@@ -29,8 +30,11 @@ const Weekmenu = () => {
   }, []);
 
   return (
-    <div className="flex flex-col text-center bg-gray_dark/80 shadow-lg p-4 rounded-lg w-full max-h-[500px] h-fit">
-      <h2 className="font-bold text-2xl text-center text-white  mb-4">
+    <div
+      id="week-menu"
+      className="flex flex-col text-center bg-gray_dark/80 shadow-lg p-4 rounded-lg w-full max-h-[500px] h-fit overflow-scroll"
+    >
+      <h2 className="font-bold text-2xl text-center text-white mb-4">
         ❤ Veckans Lunch
       </h2>
       {loading ? (
@@ -42,7 +46,7 @@ const Weekmenu = () => {
               key={index}
               className={
                 day === index + 1
-                  ? "mb-2 p-4 bg-purplepink text-white rounded-3xl shadow-2xl"
+                  ? "mb-2 p-4 bg-purplepink text-white rounded-3xl shadow-2xl border-animation"
                   : "mb-2 text-white"
               }
             >

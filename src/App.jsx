@@ -28,6 +28,10 @@ const App = () => {
             Är du inte nöjd med maten?
             <br />
             Skanna QR-koden och ge oss din åsikt!
+            <hr
+              className="
+            "
+            />
           </p>
         </div>
       </Layout>
