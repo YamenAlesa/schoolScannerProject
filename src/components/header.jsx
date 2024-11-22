@@ -24,7 +24,7 @@ const Header = () => {
         <h3 className=" text-center flex text-5xl h-fit text-white w-fit p-2">
           Välkommen!
           <span className={isBouncing ? "bounce" : ""}>
-            <PiForkKnifeBold />
+            <PiForkKnifeBold className="text-iconColor" />
           </span>
         </h3>
         <Banner text="Öppettider: 11:00 - 13:00" />

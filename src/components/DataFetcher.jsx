@@ -21,7 +21,7 @@ const DataFetcher = () => {
       <BarcodeScanner onScan={handleScan} />
       <div className="flex  w-full  justify-center ">
         <p className="flex relative  right-56 text-white text-xl items-start gap-1 mb-4">
-          <IoPerson className="mt-0.5 " /> {countUniqueScans()}
+          <IoPerson className="text-iconColor mt-0.5 " /> {countUniqueScans()}
         </p>
         <h2 className=" mb-4  font-bold text-center text-xl text-white">
           Namn

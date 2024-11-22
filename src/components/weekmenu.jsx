@@ -34,7 +34,8 @@ const Weekmenu = () => {
       className="flex flex-col text-center bg-gray_dark/80 shadow-lg p-4 rounded-lg w-full max-h-[550px] h-fit overflow-scroll"
     >
       <h2 className="font-bold text-4xl text-center text-white mb-4">
-        ❤ Veckans Lunch
+        <span className="text-iconColor p-2 ">❤</span>
+        Veckans Lunch
       </h2>
       {loading ? (
         <p>Loading...</p>
