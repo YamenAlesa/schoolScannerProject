@@ -15,12 +15,13 @@ const Weatherapi = () => {
       const response = await fetch(
         "https://api.openweathermap.org/data/2.5/weather?lat=59.223&lon=17.940&appid=7bc9dfab109c71907dcccd149d6b04c5"
       );
+
       const data = await response.json();
       const tempKelvin = data.main.temp;
       const tempCelsius = Math.round(tempKelvin - 273.15);
       const descriptionWeather = data.weather[0].description;
       const iconUrl = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
-      console.log(data);
+
       setWeather(descriptionWeather);
       setTemperature(tempCelsius);
       setCity(data.name);
@@ -36,16 +37,14 @@ const Weatherapi = () => {
     RetrieveWeatherData();
   }, []);
   return (
-    <div className="flex items-center rounded-md h-full w-full">
-      <img
-        src={sourceImage}
-        alt="Weather image"
-        className="min-h-[150px] min-w-[150px] p-0 rounded-full"
-      />
-      <h2 className="font-bold text-3xl text-darkerpurple">{temperature}°C</h2>
-
-      <div className="flex flex-col items-center justify-evenly">
-        <Clock />
+    <div
+      id="box"
+      className="h-full flex flex-wrap items-center w-1/4 text-white bg-purplepink/75"
+    >
+      <img src={sourceImage} alt="Weather image" />
+      <Clock />
+      <div className="w-full flex ml-4">
+        <h2 className="font-bold text-3xl ">{temperature}°C</h2>
       </div>
     </div>
   );
