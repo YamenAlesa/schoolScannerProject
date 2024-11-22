@@ -7,10 +7,15 @@ const useDataFetcher = (scannedId) => {
   const [loading, setLoading] = useState(false);
   const [scannedCache, setScannedCache] = useState({});
   const [feedback, setFeedback] = useState(null);
+  const [scannedIds, setScannedIds] = useState(new Set());
 
   const showFeedback = (message) => {
     setFeedback(message);
     setTimeout(() => setFeedback(null), 3000);
+  };
+
+  const countUniqueScans = () => {
+    return scannedIds.size;
   };
 
   useEffect(() => {
@@ -20,28 +25,24 @@ const useDataFetcher = (scannedId) => {
       setLoading(true);
 
       try {
-
-        if (scannedCache[scannedId]) {
-          showFeedback("This code has already been scanned.");
-          return;
-        }
-
-
         let newItem = await fetchFromAirtable(scannedId);
 
         if (!newItem) {
           console.log("ID not found in Airtable. Checking external API...");
 
           newItem = await fetchFromExternalAPI(scannedId);
-
-          if (newItem) {
-            await saveToAirtable(scannedId, newItem.namn, newItem.isPersonal);
-            console.log("New item added to Airtable:", newItem);
-          } else {
-            showFeedback("Unknown ID scanned.");
-          }
+          if (
+            listItems.some(
+              (item) => item.namn === scannedCache[scannedId]?.namn
+            )
+          )
+            if (newItem) {
+              await saveToAirtable(scannedId, newItem.namn, newItem.isPersonal);
+              console.log("New item added to Airtable:", newItem);
+            } else {
+              showFeedback("Unknown.");
+            }
         }
-
 
         if (newItem) {
           setScannedCache((prevCache) => ({
@@ -53,6 +54,12 @@ const useDataFetcher = (scannedId) => {
               ? prevList
               : [newItem, ...prevList]
           );
+
+          setScannedIds((prevScannedIds) => {
+            const newScannedIds = new Set(prevScannedIds);
+            newScannedIds.add(scannedId);
+            return newScannedIds;
+          });
         }
       } catch (error) {
         console.error("Error processing scan:", error);
@@ -62,9 +69,9 @@ const useDataFetcher = (scannedId) => {
     };
 
     fetchRecord();
-  }, [scannedId, scannedCache]);
+  }, [scannedId, scannedCache, listItems, scannedIds]);
 
-  return { listItems, loading, feedback };
+  return { listItems, loading, feedback, countUniqueScans };
 };
 
 export default useDataFetcher;
