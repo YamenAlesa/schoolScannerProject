@@ -24,10 +24,10 @@ const Clock = () => {
   return (
     <div className="flex flex-col">
       <div className="p-2 font-bold">
-        <time className="ml-6 text-3xl text-darkerpurple">{actualTime}</time>
+        <time className="ml-2 text-4xl text-white">{actualTime}</time>
       </div>
       <div className="p-2 font-bold text-nowrap">
-        <time className="ml-6 text-2xl text-darkerpurple">{today}</time>
+        <time className="ml-2 text-3xl text-white">{today}</time>
       </div>
     </div>
   );

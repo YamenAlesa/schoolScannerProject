@@ -16,7 +16,6 @@ const Weekmenu = () => {
       );
       const data = await response.json();
       setFoodWeek(data.items);
-      console.log(data.items);
     } catch (error) {
       console.error("Error: ", error);
       setError(error);
@@ -32,9 +31,9 @@ const Weekmenu = () => {
   return (
     <div
       id="week-menu"
-      className="flex flex-col text-center bg-gray_dark/80 shadow-lg p-4 rounded-lg w-full max-h-[500px] h-fit overflow-scroll"
+      className="flex flex-col text-center bg-gray_dark/80 shadow-lg p-4 rounded-lg w-full max-h-[550px] h-fit overflow-scroll"
     >
-      <h2 className="font-bold text-2xl text-center text-white mb-4">
+      <h2 className="font-bold text-4xl text-center text-white mb-4">
         ❤ Veckans Lunch
       </h2>
       {loading ? (
@@ -46,7 +45,7 @@ const Weekmenu = () => {
               key={index}
               className={
                 day === index + 1
-                  ? "mb-2 p-4 bg-purplepink text-white rounded-3xl shadow-2xl border-animation"
+                  ? "mb-2 p-4 bg-purplepink text-white text-2xl rounded-3xl shadow-2xl border-animation"
                   : "mb-2 text-white"
               }
             >

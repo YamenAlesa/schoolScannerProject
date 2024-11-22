@@ -6,9 +6,7 @@ import Weatherapi from "./weatherapi";
 const Header = () => {
   return (
     <header className="flex justify-around gap-3 p-4">
-      <div id="box" className="flex bg-white/65 rounded-3xl w-1/3 ">
-        <Weatherapi />
-      </div>
+      <Weatherapi />
       <div className="flex flex-col items-center justify-center px-4 mr-96 h-[20VH] w-full mx-auto">
         <h3 className="text-center flex text-5xl h-fit text-white w-fit p-2">
           Välkommen! {<PiForkKnifeBold />}
